@@ -1,5 +1,5 @@
 
-package modelo;
+package com.user.model;
 
 public class Persona {
 
@@ -8,7 +8,6 @@ public class Persona {
     private String identificacion;
     private String correoElectronico;
     private String telefono;
-    private String direccion;
 
     public Persona() {
     }

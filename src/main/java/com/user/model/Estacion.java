@@ -1,5 +1,5 @@
 
-package modelo;
+package com.user.model;
 
 
 public class Estacion {
