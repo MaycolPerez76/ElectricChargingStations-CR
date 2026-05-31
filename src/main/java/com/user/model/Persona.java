@@ -1,36 +1,59 @@
-
 package com.user.model;
 
+import java.util.Objects;
+import java.util.UUID;
+
+/**
+ * Entidad base de persona/usuario del sistema.
+ * Evita duplicidad de datos personales y puede reutilizarse
+ * desde otras entidades del dominio.
+ */
 public class Persona {
 
-    private int    idPersona;
+    private UUID id;
     private String nombreCompleto;
     private String identificacion;
     private String correoElectronico;
     private String telefono;
+    private String direccion;
 
     public Persona() {
+        this.id = UUID.randomUUID();
     }
 
-    public Persona(int idPersona, String nombreCompleto,
-    String identificacion, String correoElectronico,
-    String telefono, String direccion) {
-        
-    this.idPersona = idPersona;
-    this.nombreCompleto = nombreCompleto;
-    this.identificacion = identificacion;
-    this.correoElectronico = correoElectronico;
-    this.telefono = telefono;
-    this.direccion = direccion;
-  
+    public Persona(String nombreCompleto,
+                   String identificacion,
+                   String correoElectronico,
+                   String telefono,
+                   String direccion) {
+        this.id = UUID.randomUUID();
+        this.nombreCompleto = nombreCompleto;
+        this.identificacion = identificacion;
+        this.correoElectronico = correoElectronico;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 
-    public int getIdPersona() {
-        return idPersona;
+    public Persona(UUID id,
+                   String nombreCompleto,
+                   String identificacion,
+                   String correoElectronico,
+                   String telefono,
+                   String direccion) {
+        this.id = id != null ? id : UUID.randomUUID();
+        this.nombreCompleto = nombreCompleto;
+        this.identificacion = identificacion;
+        this.correoElectronico = correoElectronico;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 
-    public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
+    public UUID getIdPersona() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getNombreCompleto() {
@@ -75,6 +98,25 @@ public class Persona {
 
     @Override
     public String toString() {
-        return nombreCompleto;
+        return "Persona{" +
+                "id=" + id +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", identificacion='" + identificacion + '\'' +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", direccion='" + direccion + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Persona persona)) return false;
+        return Objects.equals(id, persona.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
