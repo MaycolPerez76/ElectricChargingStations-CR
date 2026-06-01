@@ -1,5 +1,3 @@
-
-
 package com.user.model;
 
 public class Vehiculo {
@@ -8,22 +6,36 @@ public class Vehiculo {
     private String placa;
     private String marca;
     private String modelo;
-    private int anno;
-    private Persona propietario;
+    private double capacidadKwh;
+    private String tipoConector;
+    private double porcentajeBateria;
+    private boolean activo; // Indica si el vehículo se encuentra activo dentro del sistema.
+    private Usuario propietario;
 
     public Vehiculo() {
+        this.activo = true;  
+        this.porcentajeBateria = 0;
     }
 
-    public Vehiculo(int idVehiculo, String placa, String marca,
-    String modelo, int anno, Persona propietario) {
-             
-    this.idVehiculo = idVehiculo;
-    this.placa = placa;
-    this.marca = marca;
-    this.modelo = modelo;
-    this.anno = anno;
-    this.propietario = propietario;
-    
+    public Vehiculo(int idVehiculo,
+                     String placa,
+                     String marca,
+                     String modelo,
+                     double capacidadKwh,
+                     String tipoConector,
+                     double porcentajeBateria,
+                     boolean activo,
+                     Usuario propietario) {
+
+        this.idVehiculo = idVehiculo;
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.capacidadKwh = capacidadKwh;
+        this.tipoConector = tipoConector;
+        this.porcentajeBateria = porcentajeBateria;
+        this.activo = activo;
+        this.propietario = propietario;
     }
 
     public int getIdVehiculo() {
@@ -58,24 +70,57 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
-    public int getAnno() {
-        return anno;
+    public double getCapacidadKwh() {
+        return capacidadKwh;
     }
 
-    public void setAnno(int anno) {
-        this.anno = anno;
+    public void setCapacidadKwh(double capacidadKwh) {
+        this.capacidadKwh = capacidadKwh;
     }
 
-    public Persona getPropietario() {
+    public String getTipoConector() {
+        return tipoConector;
+    }
+
+    public void setTipoConector(String tipoConector) {
+        this.tipoConector = tipoConector;
+    }
+
+    public double getPorcentajeBateria() {
+        return porcentajeBateria;
+    }
+
+    public void setPorcentajeBateria(double porcentajeBateria) {
+
+        if (porcentajeBateria < 0) {
+            porcentajeBateria = 0;
+        }
+
+        if (porcentajeBateria > 100) {
+            porcentajeBateria = 100;
+        }
+
+        this.porcentajeBateria = porcentajeBateria;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public Usuario getPropietario() {
         return propietario;
     }
 
-    public void setPropietario(Persona propietario) {
+    public void setPropietario(Usuario propietario) {
         this.propietario = propietario;
     }
 
     @Override
     public String toString() {
-        return placa;
+        return placa + " - " + marca + " " + modelo;
     }
 }
