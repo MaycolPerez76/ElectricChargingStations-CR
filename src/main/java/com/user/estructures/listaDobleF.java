@@ -1,6 +1,4 @@
-package dobles;
-
-import pilas.Pila;
+package com.user.estructures;
 
 /**
  *

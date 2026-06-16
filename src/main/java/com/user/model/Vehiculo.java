@@ -9,11 +9,10 @@ public class Vehiculo {
     private double capacidadKwh;
     private String tipoConector;
     private double porcentajeBateria;
-    private boolean activo; // Indica si el vehículo se encuentra activo dentro del sistema.
     private Usuario propietario;
+    private int estado;
 
     public Vehiculo() {
-        this.activo = true;  
         this.porcentajeBateria = 0;
     }
 
@@ -24,8 +23,8 @@ public class Vehiculo {
                      double capacidadKwh,
                      String tipoConector,
                      double porcentajeBateria,
-                     boolean activo,
-                     Usuario propietario) {
+                     Usuario propietario,
+                     int estado) {
 
         this.idVehiculo = idVehiculo;
         this.placa = placa;
@@ -34,8 +33,8 @@ public class Vehiculo {
         this.capacidadKwh = capacidadKwh;
         this.tipoConector = tipoConector;
         this.porcentajeBateria = porcentajeBateria;
-        this.activo = activo;
         this.propietario = propietario;
+        this.estado = estado;
     }
 
     public int getIdVehiculo() {
@@ -90,6 +89,16 @@ public class Vehiculo {
         return porcentajeBateria;
     }
 
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    
+    
     public void setPorcentajeBateria(double porcentajeBateria) {
 
         if (porcentajeBateria < 0) {
@@ -103,13 +112,7 @@ public class Vehiculo {
         this.porcentajeBateria = porcentajeBateria;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
 
     public Usuario getPropietario() {
         return propietario;
@@ -119,8 +122,10 @@ public class Vehiculo {
         this.propietario = propietario;
     }
 
-    @Override
-    public String toString() {
-        return placa + " - " + marca + " " + modelo;
+    
+    public String toDetalle() {
+        return "Vehiculo{" + "idVehiculo=" + idVehiculo + ", placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", capacidadKwh=" + capacidadKwh + ", tipoConector=" + tipoConector + ", porcentajeBateria=" + porcentajeBateria + ", propietario=" + propietario + ", estado=" + estado + '}';
     }
+
+
 }

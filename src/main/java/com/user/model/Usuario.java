@@ -15,23 +15,15 @@ public class Usuario extends Persona {
         this.activo = true;
     }
 
-    public Usuario(String nombreCompleto,
-                   String identificacion,
-                   String correoElectronico,
-                   String telefono,
-                   String direccion) {
-        super(nombreCompleto, identificacion, correoElectronico, telefono, direccion);
-        this.activo = true;
-    }
 
-    public Usuario(UUID id,
+    public Usuario(
                    String nombreCompleto,
                    String identificacion,
                    String correoElectronico,
                    String telefono,
                    String direccion,
                    boolean activo) {
-        super(id, nombreCompleto, identificacion, correoElectronico, telefono, direccion);
+        super(nombreCompleto, identificacion, correoElectronico, telefono, direccion);
         this.activo = activo;
     }
 
