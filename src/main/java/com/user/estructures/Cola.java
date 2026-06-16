@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pilas;
+package com.user.estructures;
 
 /**
  *
@@ -90,40 +90,6 @@ salida+="\n";
  salida+="S="+S+"\n";
 return salida;
 }
-    
-    
-       public static void main (String args[]) {
-        Cola cola = new Cola();
-        cola.agregarElemento(8);
-        cola.agregarElemento(3);
-        cola.agregarElemento(56);     
-        cola.agregarElemento(16);     
-        cola.agregarElemento(34);  
-        cola.agregarElemento(16); 
-        cola.agregarElemento(55); 
-        cola.agregarElemento(21); 
-        cola.agregarElemento(8); 
-        cola.agregarElemento(12); 
-        cola.agregarElemento(42); 
-        cola.agregarElemento(65); 
-        cola.agregarElemento(63); 
-        cola.agregarElemento(88); 
-        cola.agregarElemento(23); 
-        cola.agregarElemento(98); 
-        System.out.println(cola);
-        
-        System.out.println("Eliminado el elemento" + cola.eliminarElemento());
-        System.out.println("Eliminado el elemento" + cola.eliminarElemento());
-        System.out.println("Eliminado el elemento" + cola.eliminarElemento());  
-        
-        System.out.println(cola);
-    }
-    
-    
-    
-    
-    
-    
     
     
 }

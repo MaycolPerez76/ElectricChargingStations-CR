@@ -10,7 +10,7 @@ import java.util.UUID;
  */
 public class Persona {
 
-    private UUID id;
+    private String id;
     private String nombreCompleto;
     private String identificacion;
     private String correoElectronico;
@@ -18,7 +18,6 @@ public class Persona {
     private String direccion;
 
     public Persona() {
-        this.id = UUID.randomUUID();
     }
 
     public Persona(String nombreCompleto,
@@ -26,7 +25,6 @@ public class Persona {
                    String correoElectronico,
                    String telefono,
                    String direccion) {
-        this.id = UUID.randomUUID();
         this.nombreCompleto = nombreCompleto;
         this.identificacion = identificacion;
         this.correoElectronico = correoElectronico;
@@ -34,26 +32,10 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public Persona(UUID id,
-                   String nombreCompleto,
-                   String identificacion,
-                   String correoElectronico,
-                   String telefono,
-                   String direccion) {
-        this.id = id != null ? id : UUID.randomUUID();
-        this.nombreCompleto = nombreCompleto;
-        this.identificacion = identificacion;
-        this.correoElectronico = correoElectronico;
-        this.telefono = telefono;
-        this.direccion = direccion;
-    }
+ 
 
-    public UUID getIdPersona() {
+    public String getIdPersona() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getNombreCompleto() {
