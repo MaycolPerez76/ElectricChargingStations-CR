@@ -3,7 +3,6 @@ package com.user.controller;
 import com.user.model.Usuario;
 import com.user.service.UsuarioService;
 import java.util.Collection;
-import java.util.UUID;
 
 /**
  * Controlador básico para operaciones de Usuario.
@@ -21,7 +20,7 @@ public class UsuarioController {
     }
 
     public Usuario obtenerUsuario(String id) {
-        return usuarioService.obtenerUsuario(UUID.fromString(id));
+        return usuarioService.obtenerUsuario(id);
     }
 
     public Collection<Usuario> listarUsuarios() {
