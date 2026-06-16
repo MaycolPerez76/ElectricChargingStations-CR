@@ -2,7 +2,7 @@ package com.user.model;
 
 public class Vehiculo {
 
-    private int idVehiculo;
+    private String idVehiculo;
     private String placa;
     private String marca;
     private String modelo;
@@ -16,7 +16,7 @@ public class Vehiculo {
         this.porcentajeBateria = 0;
     }
 
-    public Vehiculo(int idVehiculo,
+    public Vehiculo(String idVehiculo,
                      String placa,
                      String marca,
                      String modelo,
@@ -37,11 +37,11 @@ public class Vehiculo {
         this.estado = estado;
     }
 
-    public int getIdVehiculo() {
+    public String getIdVehiculo() {
         return idVehiculo;
     }
 
-    public void setIdVehiculo(int idVehiculo) {
+    public void setIdVehiculo(String idVehiculo) {
         this.idVehiculo = idVehiculo;
     }
 
