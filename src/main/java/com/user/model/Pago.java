@@ -2,30 +2,45 @@ package com.user.model;
 
 public class Pago {
 
-    private int idPago;
+    private String idPago;
+    private Carga carga;
     private double monto;
     private String metodoPago;
     private String fechaPago;
-    private String estado;
+    private int estado;
 
     public Pago() {
     }
 
-    public Pago(int idPago, double monto, String metodoPago,
-                String fechaPago, String estado) {
+    public Pago(String idPago,
+                Carga carga,
+                double monto,
+                String metodoPago,
+                String fechaPago,
+                int estado) {
+
         this.idPago = idPago;
+        this.carga = carga;
         this.monto = monto;
         this.metodoPago = metodoPago;
         this.fechaPago = fechaPago;
         this.estado = estado;
     }
 
-    public int getIdPago() {
+    public String getIdPago() {
         return idPago;
     }
 
-    public void setIdPago(int idPago) {
+    public void setIdPago(String idPago) {
         this.idPago = idPago;
+    }
+
+    public Carga getCarga() {
+        return carga;
+    }
+
+    public void setCarga(Carga carga) {
+        this.carga = carga;
     }
 
     public double getMonto() {
@@ -52,11 +67,22 @@ public class Pago {
         this.fechaPago = fechaPago;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public String toDetalle() {
+        return "Pago{" +
+                "idPago=" + idPago +
+                ", carga=" + carga +
+                ", monto=" + monto +
+                ", metodoPago=" + metodoPago +
+                ", fechaPago=" + fechaPago +
+                ", estado=" + estado +
+                '}';
     }
 }

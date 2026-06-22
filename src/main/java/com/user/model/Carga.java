@@ -2,38 +2,45 @@ package com.user.model;
 
 public class Carga {
 
-    private int idCarga;
-    private String fecha;
+    private String idCarga;
+    private Vehiculo vehiculo;
     private double energiaConsumida;
-    private double duracion;
-    private String estado;
+    private double tiempoCarga;
+    private String fecha;
+    private int estado;
 
     public Carga() {
     }
 
-    public Carga(int idCarga, String fecha, double energiaConsumida,
-                 double duracion, String estado) {
+    public Carga(String idCarga,
+                 Vehiculo vehiculo,
+                 double energiaConsumida,
+                 double tiempoCarga,
+                 String fecha,
+                 int estado) {
+
         this.idCarga = idCarga;
-        this.fecha = fecha;
+        this.vehiculo = vehiculo;
         this.energiaConsumida = energiaConsumida;
-        this.duracion = duracion;
+        this.tiempoCarga = tiempoCarga;
+        this.fecha = fecha;
         this.estado = estado;
     }
 
-    public int getIdCarga() {
+    public String getIdCarga() {
         return idCarga;
     }
 
-    public void setIdCarga(int idCarga) {
+    public void setIdCarga(String idCarga) {
         this.idCarga = idCarga;
     }
 
-    public String getFecha() {
-        return fecha;
+    public Vehiculo getVehiculo() {
+        return vehiculo;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
     }
 
     public double getEnergiaConsumida() {
@@ -44,19 +51,38 @@ public class Carga {
         this.energiaConsumida = energiaConsumida;
     }
 
-    public double getDuracion() {
-        return duracion;
+    public double getTiempoCarga() {
+        return tiempoCarga;
     }
 
-    public void setDuracion(double duracion) {
-        this.duracion = duracion;
+    public void setTiempoCarga(double tiempoCarga) {
+        this.tiempoCarga = tiempoCarga;
     }
 
-    public String getEstado() {
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public String toDetalle() {
+        return "Carga{" +
+                "idCarga=" + idCarga +
+                ", vehiculo=" + vehiculo +
+                ", energiaConsumida=" + energiaConsumida +
+                ", tiempoCarga=" + tiempoCarga +
+                ", fecha=" + fecha +
+                ", estado=" + estado +
+                '}';
     }
 }
