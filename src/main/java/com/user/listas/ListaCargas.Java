@@ -7,8 +7,6 @@ import com.user.model.Estacion;
  *
  * @author myava
  */
-
-//Sirve para historial y filtros
 public class ListaCargas {
 
     private Carga listaCargas[];
@@ -145,11 +143,6 @@ public class ListaCargas {
             }
         }
         return sal;
-    }
-
-    public void cargarListaCargas() {
-        // Se llenará con datos de prueba desde el main
-        System.out.println("Lista de cargas inicializada vacía.");
     }
 
     @Override
