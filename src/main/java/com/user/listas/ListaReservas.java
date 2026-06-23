@@ -126,6 +126,31 @@ public class ListaReservas {
         return temporal;
     }
 
+    public ListaReservas filtroXVehiculo(String placa) {
+        if (placa == null) return new ListaReservas(tamMaximo);
+        ListaReservas temporal = new ListaReservas(tamMaximo);
+        for (int i = 0; i < aReserva; i++) {
+            if (listaReservas[i] != null && 
+                listaReservas[i].getVehiculo() != null &&
+                listaReservas[i].getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
+                temporal.agregarReserva(listaReservas[i]);
+            }
+        }
+        return temporal;
+    }
+
+    public ListaReservas unirLista(ListaReservas listaA, ListaReservas listaB) {
+        int tamañoUnion = listaA.getAReserva() + listaB.getAReserva();
+        ListaReservas temporal = new ListaReservas(tamañoUnion);
+        for (int i = 0; i < listaA.getAReserva(); i++) {
+            temporal.agregarReserva(listaA.getReserva(i));
+        }
+        for (int i = 0; i < listaB.getAReserva(); i++) {
+            temporal.agregarReserva(listaB.getReserva(i));
+        }
+        return temporal;
+    }
+
     public String toReporte() {
         String sal = "Total de reservas: " + aReserva + "\n";
         for (int i = 0; i < aReserva; i++) {
@@ -134,6 +159,10 @@ public class ListaReservas {
             }
         }
         return sal;
+    }
+
+    public void cargarListaReservas() {
+        System.out.println("Lista de reservas inicializada vacía.");
     }
 
     @Override
