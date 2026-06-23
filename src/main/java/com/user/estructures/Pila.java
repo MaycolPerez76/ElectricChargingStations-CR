@@ -72,7 +72,5 @@ public class Pila {
     salida+="Apunt="+apunt+"\n";
     return salida;
   }//fin del metodo toString
-    
-    
-    
+ 
 }
