@@ -4,6 +4,8 @@
 
 package main;
 
+import com.user.algoritmos.EstacionesGrafo;
+
 /**
  *
  * @author mayco
@@ -11,6 +13,7 @@ package main;
 public class ElectricChargingStationsCR {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        EstacionesGrafo app = new EstacionesGrafo();
+        app.recorridoDijkstra(0);
     }
 }

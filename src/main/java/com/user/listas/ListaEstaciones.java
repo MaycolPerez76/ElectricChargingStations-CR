@@ -31,6 +31,7 @@ public class ListaEstaciones {
         }
         if (aEstacion < tamMaximo) {
             listaEstaciones[aEstacion++] = nueva;
+
         } else {
             System.out.println("Error: Lista de estaciones llena.");
         }

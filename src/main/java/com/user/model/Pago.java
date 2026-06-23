@@ -31,10 +31,6 @@ public class Pago {
         return idPago;
     }
 
-    public void setIdPago(String idPago) {
-        this.idPago = idPago;
-    }
-
     public Carga getCarga() {
         return carga;
     }

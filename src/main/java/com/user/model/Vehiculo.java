@@ -41,10 +41,6 @@ public class Vehiculo {
         return idVehiculo;
     }
 
-    public void setIdVehiculo(String idVehiculo) {
-        this.idVehiculo = idVehiculo;
-    }
-
     public String getPlaca() {
         return placa;
     }

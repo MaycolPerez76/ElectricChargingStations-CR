@@ -100,19 +100,6 @@ public class ListaCargas {
         return temporal;
     }
 
-    public ListaCargas filtroXVehiculo(String placa) {
-        if (placa == null) return new ListaCargas(tamMaximo);
-        ListaCargas temporal = new ListaCargas(tamMaximo);
-        for (int i = 0; i < aCarga; i++) {
-            if (listaCargas[i] != null && 
-                listaCargas[i].getVehiculo() != null &&
-                listaCargas[i].getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
-                temporal.agregarCarga(listaCargas[i]);
-            }
-        }
-        return temporal;
-    }
-
     public ListaCargas filtroXEstado(int estado) {
         ListaCargas temporal = new ListaCargas(tamMaximo);
         for (int i = 0; i < aCarga; i++) {
@@ -122,6 +109,9 @@ public class ListaCargas {
         }
         return temporal;
     }
+    
+        public void cargarListaCargas(ListaUsuarios usuarios) {
+        };
 
     public ListaCargas unirLista(ListaCargas listaA, ListaCargas listaB) {
         int tamañoUnion = listaA.getACarga() + listaB.getACarga();

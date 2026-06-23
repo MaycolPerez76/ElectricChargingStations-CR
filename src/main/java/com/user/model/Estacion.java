@@ -33,10 +33,6 @@ public class Estacion {
         return idEstacion;
     }
 
-    public void setIdEstacion(int idEstacion) {
-        this.idEstacion = idEstacion;
-    }
-
     public String getNombre() {
         return nombre;
     }

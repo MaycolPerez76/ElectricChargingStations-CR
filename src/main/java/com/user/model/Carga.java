@@ -3,11 +3,11 @@ package com.user.model;
 public class Carga {
 
     private String idCarga;
-    private Vehiculo vehiculo;
     private Estacion estacion;
+    private double precioRegular;
     private double energiaConsumida;
     private double tiempoCarga;
-    private String fecha;
+    
     private int estado;
 
     public Carga() {
@@ -16,17 +16,16 @@ public class Carga {
     public Carga(String idCarga,
                  Vehiculo vehiculo,
                  Estacion estacion,
+                 double precioRegular,
                  double energiaConsumida,
                  double tiempoCarga,
                  String fecha,
                  int estado) {
 
         this.idCarga = idCarga;
-        this.vehiculo = vehiculo;
         this.estacion = estacion;
-        this.energiaConsumida = energiaConsumida;
+        this.precioRegular = precioRegular;
         this.tiempoCarga = tiempoCarga;
-        this.fecha = fecha;
         this.estado = estado;
     }
 
@@ -34,17 +33,14 @@ public class Carga {
         return idCarga;
     }
 
-    public void setIdCarga(String idCarga) {
-        this.idCarga = idCarga;
+    public double getPrecioRegular() {
+        return precioRegular;
     }
 
-    public Vehiculo getVehiculo() {
-        return vehiculo;
+    public void setPrecioRegular(double precioRegular) {
+        this.precioRegular = precioRegular;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-    }
 
     public Estacion getEstacion() {
         return estacion;
@@ -70,14 +66,6 @@ public class Carga {
         this.tiempoCarga = tiempoCarga;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
     public int getEstado() {
         return estado;
     }
@@ -85,15 +73,16 @@ public class Carga {
     public void setEstado(int estado) {
         this.estado = estado;
     }
+    
+    public
 
     public String toDetalle() {
         return "Carga{" +
                 "idCarga=" + idCarga +
-                ", vehiculo=" + vehiculo.getPlaca() +
                 ", estacion=" + estacion.getNombre() +
+                ", precioRegular=" + precioRegular +           
                 ", energiaConsumida=" + energiaConsumida +
                 ", tiempoCarga=" + tiempoCarga +
-                ", fecha=" + fecha +
                 ", estado=" + estado +
                 '}';
     }
