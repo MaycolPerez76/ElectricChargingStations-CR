@@ -64,7 +64,9 @@ public class ListaReservas {
     }
 
     public int consultarReservaXID(String idReserva) {
-        if (idReserva == null) return -1;
+        if (idReserva == null) {
+            return -1;
+        }
         for (int i = 0; i < aReserva; i++) {
             if (listaReservas[i] != null && listaReservas[i].getIdReserva().equals(idReserva)) {
                 return i;
@@ -89,12 +91,14 @@ public class ListaReservas {
     }
 
     public ListaReservas filtroXEstacion(Estacion estacion) {
-        if (estacion == null) return new ListaReservas(tamMaximo);
+        if (estacion == null) {
+            return new ListaReservas(tamMaximo);
+        }
         ListaReservas temporal = new ListaReservas(tamMaximo);
         for (int i = 0; i < aReserva; i++) {
-            if (listaReservas[i] != null && 
-                listaReservas[i].getEstacion() != null &&
-                listaReservas[i].getEstacion().getIdEstacion() == estacion.getIdEstacion()) {
+            if (listaReservas[i] != null
+                    && listaReservas[i].getEstacion() != null
+                    && listaReservas[i].getEstacion().getIdEstacion() == estacion.getIdEstacion()) {
                 temporal.agregarReserva(listaReservas[i]);
             }
         }
@@ -102,12 +106,14 @@ public class ListaReservas {
     }
 
     public ListaReservas filtroXUsuario(Usuario usuario) {
-        if (usuario == null) return new ListaReservas(tamMaximo);
+        if (usuario == null) {
+            return new ListaReservas(tamMaximo);
+        }
         ListaReservas temporal = new ListaReservas(tamMaximo);
         for (int i = 0; i < aReserva; i++) {
-            if (listaReservas[i] != null && 
-                listaReservas[i].getUsuario() != null &&
-                listaReservas[i].getUsuario().getIdPersona().equals(usuario.getIdPersona())) {
+            if (listaReservas[i] != null
+                    && listaReservas[i].getUsuario() != null
+                    && listaReservas[i].getUsuario().getIdPersona().equals(usuario.getIdPersona())) {
                 temporal.agregarReserva(listaReservas[i]);
             }
         }
@@ -115,11 +121,13 @@ public class ListaReservas {
     }
 
     public ListaReservas filtroXEstado(String estado) {
-        if (estado == null) return new ListaReservas(tamMaximo);
+        if (estado == null) {
+            return new ListaReservas(tamMaximo);
+        }
         ListaReservas temporal = new ListaReservas(tamMaximo);
         for (int i = 0; i < aReserva; i++) {
-            if (listaReservas[i] != null && 
-                listaReservas[i].getEstado().equalsIgnoreCase(estado)) {
+            if (listaReservas[i] != null
+                    && listaReservas[i].getEstado().equalsIgnoreCase(estado)) {
                 temporal.agregarReserva(listaReservas[i]);
             }
         }
@@ -127,12 +135,14 @@ public class ListaReservas {
     }
 
     public ListaReservas filtroXVehiculo(String placa) {
-        if (placa == null) return new ListaReservas(tamMaximo);
+        if (placa == null) {
+            return new ListaReservas(tamMaximo);
+        }
         ListaReservas temporal = new ListaReservas(tamMaximo);
         for (int i = 0; i < aReserva; i++) {
-            if (listaReservas[i] != null && 
-                listaReservas[i].getVehiculo() != null &&
-                listaReservas[i].getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
+            if (listaReservas[i] != null
+                    && listaReservas[i].getVehiculo() != null
+                    && listaReservas[i].getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
                 temporal.agregarReserva(listaReservas[i]);
             }
         }
@@ -170,3 +180,4 @@ public class ListaReservas {
         return toReporte();
     }
 }
+
