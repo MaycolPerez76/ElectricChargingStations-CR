@@ -11,13 +11,14 @@ public class Estacion {
     private int cargadoresOcupados;
     private String estado;
     private boolean requiereCita;
+    private String tipoConector;
 
     public Estacion() {
     }
 
     public Estacion(int idEstacion, String nombre, String ubicacion,
     int cantidadCargadores, int cargadoresOcupados,
-    String estado, boolean requiereCita) {
+    String estado, boolean requiereCita, String tipoConector) {
 
     this.idEstacion = idEstacion;
     this.nombre = nombre;
@@ -26,6 +27,7 @@ public class Estacion {
     this.cargadoresOcupados = cargadoresOcupados;
     this.estado = estado;
     this.requiereCita = requiereCita;
+    this.tipoConector = tipoConector;
     
     }
 
@@ -79,6 +81,14 @@ public class Estacion {
 
     public void setRequiereCita(boolean requiereCita) {
         this.requiereCita = requiereCita;
+    }
+
+    public String getTipoConector() {
+        return tipoConector;
+    }
+
+    public void setTipoConector(String tipoConector) {
+        this.tipoConector = tipoConector;
     }
 
     @Override

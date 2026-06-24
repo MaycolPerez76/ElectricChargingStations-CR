@@ -223,11 +223,11 @@ public class ListaEstaciones {
     }
 
     public void cargarListaEstaciones() {
-        agregarEstacion(new Estacion(1, "Estación Norte", "San José", 4, 0, "Disponible", true));
-        agregarEstacion(new Estacion(2, "Estación Sur", "Cartago", 3, 1, "Parcial", false));
-        agregarEstacion(new Estacion(3, "Estación Este", "Heredia", 5, 5, "Ocupada", true));
-        agregarEstacion(new Estacion(4, "Estación Oeste", "Alajuela", 2, 0, "Mantenimiento", false));
-        agregarEstacion(new Estacion(5, "Estación Central", "San José", 6, 3, "Parcial", true));
+        agregarEstacion(new Estacion(1, "Estación Norte", "San José", 4, 0, "Disponible", true, "CCS2"));
+        agregarEstacion(new Estacion(2, "Estación Sur", "Cartago", 3, 1, "Parcial", false, "CCS2"));
+        agregarEstacion(new Estacion(3, "Estación Este", "Heredia", 5, 5, "Ocupada", true, "CHAdeMO"));
+        agregarEstacion(new Estacion(4, "Estación Oeste", "Alajuela", 2, 0, "Mantenimiento", false, "CCS2"));
+        agregarEstacion(new Estacion(5, "Estación Central", "San José", 6, 3, "Parcial", true, "CCS2"));
     }
 
     @Override

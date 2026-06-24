@@ -4,6 +4,7 @@
 package com.user.algoritmos;
 
 import com.user.estructures.Grafos;
+import com.user.estructures.ListaSimpleF;
 import com.user.listas.ListaCargas;
 import com.user.listas.ListaEstaciones;
 import com.user.listas.ListaVehiculos;
@@ -68,8 +69,11 @@ public class CargasGrafo {
             Estacion e1 = estaciones.getEstacion(i);
             for (int j = i + 1; j < totalEstaciones; j++) {
                 Estacion e2 = estaciones.getEstacion(j);
-                int peso = obtenerDistancia(e1.getUbicacion(), e2.getUbicacion());
-                grafo.agregarAristaConPeso(i, j, peso);
+                int distancia = obtenerDistancia(e1.getUbicacion(), e2.getUbicacion());
+                int pesoIda = distancia + (e2.getCargadoresOcupados() * 2);
+                int pesoVuelta = distancia + (e1.getCargadoresOcupados() * 2);
+                grafo.agregarAristaDirigidaConPeso(i, j, pesoIda);
+                grafo.agregarAristaDirigidaConPeso(j, i, pesoVuelta);
             }
         }
     }
@@ -119,4 +123,53 @@ public class CargasGrafo {
         }
         System.out.println();
     }
+
+    private boolean esFuncional(int indice) {
+        Estacion e = estaciones.getEstacion(indice);
+        if (e == null) return false;
+        return !e.getEstado().equalsIgnoreCase("Mantenimiento")
+            && e.getCargadoresOcupados() < e.getCantidadCargadores();
+    }
+
+    public int estacionFuncionalMasCercana(int inicio) {
+        int[] distancias = grafo.dijkstra(inicio);
+        int masCercano = -1;
+        int menorDist = Integer.MAX_VALUE;
+        for (int i = 0; i < totalEstaciones; i++) {
+            if (i != inicio && esFuncional(i) && distancias[i] < menorDist) {
+                menorDist = distancias[i];
+                masCercano = i;
+            }
+        }
+        if (masCercano != -1) {
+            Estacion e = estaciones.getEstacion(masCercano);
+            System.out.println("Estación funcional más cercana: " + e.getNombre()
+                + " (" + e.getUbicacion() + ") a " + menorDist + " min");
+        } else {
+            System.out.println("No hay estaciones funcionales disponibles.");
+        }
+        return masCercano;
+    }
+
+    public ListaSimpleF listarEstacionesPorConector(String tipoConector) {
+        ListaSimpleF lista = new ListaSimpleF(totalEstaciones);
+        for (int i = 0; i < totalEstaciones; i++) {
+            Estacion e = estaciones.getEstacion(i);
+            if (e != null && e.getTipoConector().equalsIgnoreCase(tipoConector)) {
+                lista.agregarElemento(e.getIdEstacion());
+            }
+        }
+        System.out.println("Estaciones con conector " + tipoConector + ":");
+        boolean hay = false;
+        for (int i = 0; i < totalEstaciones; i++) {
+            Estacion e = estaciones.getEstacion(i);
+            if (e != null && e.getTipoConector().equalsIgnoreCase(tipoConector)) {
+                System.out.println("  - " + e.getNombre() + " (ID: " + e.getIdEstacion() + ")");
+                hay = true;
+            }
+        }
+        if (!hay) System.out.println("  (ninguna)");
+        return lista;
+    }
+
 }
