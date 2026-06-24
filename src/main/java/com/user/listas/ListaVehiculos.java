@@ -1,7 +1,10 @@
 package com.user.listas;
 
-import com.user.model.Usuario;
-import com.user.model.Vehiculo;
+/**
+ *
+ * @author myava
+ */
+import com.user.model.*;
 
 public class ListaVehiculos {
 
@@ -80,7 +83,9 @@ public class ListaVehiculos {
     }
 
     public int consultarVehiculoXID(String id) {
-        if (id == null) return -1;
+        if (id == null) {
+            return -1;
+        }
         for (int i = 0; i < aVehiculo; i++) {
             if (listaVehiculos[i] != null && listaVehiculos[i].getIdVehiculo().equals(id)) {
                 return i;
@@ -133,7 +138,9 @@ public class ListaVehiculos {
 
     public ListaVehiculos filtroXPlaca(String placa) {
         ListaVehiculos temporal = new ListaVehiculos(tamMaximo);
-        if (placa == null) return temporal;
+        if (placa == null) {
+            return temporal;
+        }
         for (int i = 0; i < aVehiculo; i++) {
             if (listaVehiculos[i] != null && listaVehiculos[i].getPlaca().equalsIgnoreCase(placa)) {
                 temporal.agregarVehiculo(listaVehiculos[i]);
@@ -167,31 +174,31 @@ public class ListaVehiculos {
     /**
      * Carga inicial de 20 vehículos de ejemplo, asignando cada uno a un usuario
      * de la lista proporcionada. Si hay menos de 20 usuarios, se cargan solo
-     * los vehículos que puedan tener propietario (nunca se crea un vehículo
-     * sin dueño).
+     * los vehículos que puedan tener propietario (nunca se crea un vehículo sin
+     * dueño).
      */
     public void cargarListaVehiculos(ListaUsuarios usuarios) {
         String[][] datos = {
-            {"V001","EV-001","Nissan","Leaf","40"},
-            {"V002","EV-002","BYD","Dolphin","45"},
-            {"V003","EV-003","BYD","Yuan Plus","60"},
-            {"V004","EV-004","Tesla","Model 3","57"},
-            {"V005","EV-005","Tesla","Model Y","75"},
-            {"V006","EV-006","Hyundai","Kona Electric","64"},
-            {"V007","EV-007","Hyundai","Ioniq 5","77"},
-            {"V008","EV-008","Kia","EV6","77"},
-            {"V009","EV-009","Kia","Niro EV","64"},
-            {"V010","EV-010","Volvo","EX30","69"},
-            {"V011","EV-011","Volvo","XC40 Recharge","78"},
-            {"V012","EV-012","BMW","iX1","66"},
-            {"V013","EV-013","BMW","i4","81"},
-            {"V014","EV-014","MG","MG4","64"},
-            {"V015","EV-015","JAC","EJS1","31"},
-            {"V016","EV-016","Geely","Geometry C","70"},
-            {"V017","EV-017","Dongfeng","Nammi","42"},
-            {"V018","EV-018","Changan","E-Star","33"},
-            {"V019","EV-019","Audi","Q4 e-tron","82"},
-            {"V020","EV-020","BYD","Seagull","39"}
+            {"V001", "EV-001", "Nissan", "Leaf", "40"},
+            {"V002", "EV-002", "BYD", "Dolphin", "45"},
+            {"V003", "EV-003", "BYD", "Yuan Plus", "60"},
+            {"V004", "EV-004", "Tesla", "Model 3", "57"},
+            {"V005", "EV-005", "Tesla", "Model Y", "75"},
+            {"V006", "EV-006", "Hyundai", "Kona Electric", "64"},
+            {"V007", "EV-007", "Hyundai", "Ioniq 5", "77"},
+            {"V008", "EV-008", "Kia", "EV6", "77"},
+            {"V009", "EV-009", "Kia", "Niro EV", "64"},
+            {"V010", "EV-010", "Volvo", "EX30", "69"},
+            {"V011", "EV-011", "Volvo", "XC40 Recharge", "78"},
+            {"V012", "EV-012", "BMW", "iX1", "66"},
+            {"V013", "EV-013", "BMW", "i4", "81"},
+            {"V014", "EV-014", "MG", "MG4", "64"},
+            {"V015", "EV-015", "JAC", "EJS1", "31"},
+            {"V016", "EV-016", "Geely", "Geometry C", "70"},
+            {"V017", "EV-017", "Dongfeng", "Nammi", "42"},
+            {"V018", "EV-018", "Changan", "E-Star", "33"},
+            {"V019", "EV-019", "Audi", "Q4 e-tron", "82"},
+            {"V020", "EV-020", "BYD", "Seagull", "39"}
         };
 
         int cantidadUsuarios = usuarios.getAUsuario();
@@ -201,15 +208,15 @@ public class ListaVehiculos {
             Usuario propietario = usuarios.getUsuario(i);
             if (propietario != null) {
                 agregarVehiculo(new Vehiculo(
-                    datos[i][0],
-                    datos[i][1],
-                    datos[i][2],
-                    datos[i][3],
-                    Double.parseDouble(datos[i][4]),
-                    "CCS2",
-                    80,
-                    propietario,
-                    1
+                        datos[i][0],
+                        datos[i][1],
+                        datos[i][2],
+                        datos[i][3],
+                        Double.parseDouble(datos[i][4]),
+                        "CCS2",
+                        80,
+                        propietario,
+                        1
                 ));
             }
         }

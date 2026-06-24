@@ -1,11 +1,11 @@
 package com.user.listas;
 
-import com.user.model.Estacion;
-
 /**
  *
  * @author myava
  */
+import com.user.model.*;
+
 public class ListaEstaciones {
 
     private Estacion listaEstaciones[];
@@ -72,10 +72,12 @@ public class ListaEstaciones {
     }
 
     public int consultarEstacionXNombre(String nombre) {
-        if (nombre == null) return -1;
+        if (nombre == null) {
+            return -1;
+        }
         for (int i = 0; i < aEstacion; i++) {
-            if (listaEstaciones[i] != null && 
-                listaEstaciones[i].getNombre().equalsIgnoreCase(nombre)) {
+            if (listaEstaciones[i] != null
+                    && listaEstaciones[i].getNombre().equalsIgnoreCase(nombre)) {
                 return i;
             }
         }
@@ -83,10 +85,12 @@ public class ListaEstaciones {
     }
 
     public int consultarEstacionXUbicacion(String ubicacion) {
-        if (ubicacion == null) return -1;
+        if (ubicacion == null) {
+            return -1;
+        }
         for (int i = 0; i < aEstacion; i++) {
-            if (listaEstaciones[i] != null && 
-                listaEstaciones[i].getUbicacion().equalsIgnoreCase(ubicacion)) {
+            if (listaEstaciones[i] != null
+                    && listaEstaciones[i].getUbicacion().equalsIgnoreCase(ubicacion)) {
                 return i;
             }
         }
@@ -116,11 +120,13 @@ public class ListaEstaciones {
     }
 
     public ListaEstaciones filtroXEstado(String estado) {
-        if (estado == null) return new ListaEstaciones(tamMaximo);
+        if (estado == null) {
+            return new ListaEstaciones(tamMaximo);
+        }
         ListaEstaciones temporal = new ListaEstaciones(tamMaximo);
         for (int i = 0; i < aEstacion; i++) {
-            if (listaEstaciones[i] != null && 
-                listaEstaciones[i].getEstado().equalsIgnoreCase(estado)) {
+            if (listaEstaciones[i] != null
+                    && listaEstaciones[i].getEstado().equalsIgnoreCase(estado)) {
                 temporal.agregarEstacion(listaEstaciones[i]);
             }
         }
@@ -130,9 +136,9 @@ public class ListaEstaciones {
     public ListaEstaciones filtroXDisponibles() {
         ListaEstaciones temporal = new ListaEstaciones(tamMaximo);
         for (int i = 0; i < aEstacion; i++) {
-            if (listaEstaciones[i] != null && 
-                listaEstaciones[i].getCargadoresOcupados() < 
-                listaEstaciones[i].getCantidadCargadores()) {
+            if (listaEstaciones[i] != null
+                    && listaEstaciones[i].getCargadoresOcupados()
+                    < listaEstaciones[i].getCantidadCargadores()) {
                 temporal.agregarEstacion(listaEstaciones[i]);
             }
         }
@@ -142,9 +148,9 @@ public class ListaEstaciones {
     public ListaEstaciones filtroXOcupadas() {
         ListaEstaciones temporal = new ListaEstaciones(tamMaximo);
         for (int i = 0; i < aEstacion; i++) {
-            if (listaEstaciones[i] != null && 
-                listaEstaciones[i].getCargadoresOcupados() == 
-                listaEstaciones[i].getCantidadCargadores()) {
+            if (listaEstaciones[i] != null
+                    && listaEstaciones[i].getCargadoresOcupados()
+                    == listaEstaciones[i].getCantidadCargadores()) {
                 temporal.agregarEstacion(listaEstaciones[i]);
             }
         }
@@ -184,37 +190,37 @@ public class ListaEstaciones {
     }
 
     public String toReporte() {
-    String sal = "Total de estaciones: " + aEstacion + "\n";
-    for (int i = 0; i < aEstacion; i++) {
-        if (listaEstaciones[i] != null) {
-            Estacion e = listaEstaciones[i];
-            sal = sal + "ID: " + e.getIdEstacion()
-               + " | " + e.getNombre()
-               + " | " + e.getUbicacion()
-               + " | Cargadores: " + e.getCantidadCargadores()
-               + " | Ocupados: " + e.getCargadoresOcupados()
-               + " | Estado: " + e.getEstado()
-               + " | Cita: " + (e.isRequiereCita() ? "Sí" : "No")
-               + "\n";
+        String sal = "Total de estaciones: " + aEstacion + "\n";
+        for (int i = 0; i < aEstacion; i++) {
+            if (listaEstaciones[i] != null) {
+                Estacion e = listaEstaciones[i];
+                sal = sal + "ID: " + e.getIdEstacion()
+                        + " | " + e.getNombre()
+                        + " | " + e.getUbicacion()
+                        + " | Cargadores: " + e.getCantidadCargadores()
+                        + " | Ocupados: " + e.getCargadoresOcupados()
+                        + " | Estado: " + e.getEstado()
+                        + " | Cita: " + (e.isRequiereCita() ? "Sí" : "No")
+                        + "\n";
+            }
         }
+        return sal;
     }
-    return sal;
-}
 
     public String toReporteResumido() {
-    String sal = "Total: " + aEstacion + "\n";
-    for (int i = 0; i < aEstacion; i++) {
-        if (listaEstaciones[i] != null) {
-            Estacion e = listaEstaciones[i];
-            int disponibles = e.getCantidadCargadores() - e.getCargadoresOcupados();
-            sal = sal + e.getNombre()
-               + " - " + disponibles + "/"
-               + e.getCantidadCargadores() + " disponibles"
-               + " (" + e.getEstado() + ")\n";
+        String sal = "Total: " + aEstacion + "\n";
+        for (int i = 0; i < aEstacion; i++) {
+            if (listaEstaciones[i] != null) {
+                Estacion e = listaEstaciones[i];
+                int disponibles = e.getCantidadCargadores() - e.getCargadoresOcupados();
+                sal = sal + e.getNombre()
+                        + " - " + disponibles + "/"
+                        + e.getCantidadCargadores() + " disponibles"
+                        + " (" + e.getEstado() + ")\n";
+            }
         }
+        return sal;
     }
-    return sal;
-}
 
     public void cargarListaEstaciones() {
         agregarEstacion(new Estacion(1, "Estación Norte", "San José", 4, 0, "Disponible", true));
