@@ -1,13 +1,11 @@
 package com.user.listas;
 
-import com.user.model.Reserva;
-import com.user.model.Estacion;
-import com.user.model.Usuario;
-
 /**
  *
  * @author myava
  */
+import com.user.model.*;
+
 public class ListaReservas {
 
     private Reserva listaReservas[];

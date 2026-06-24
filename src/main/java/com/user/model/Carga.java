@@ -13,6 +13,9 @@ public class Carga {
     public Carga() {
     }
 
+    private Vehiculo vehiculo;
+    private String fecha;
+
     public Carga(String idCarga,
                  Vehiculo vehiculo,
                  Estacion estacion,
@@ -23,9 +26,12 @@ public class Carga {
                  int estado) {
 
         this.idCarga = idCarga;
+        this.vehiculo = vehiculo;
         this.estacion = estacion;
         this.precioRegular = precioRegular;
+        this.energiaConsumida = energiaConsumida;
         this.tiempoCarga = tiempoCarga;
+        this.fecha = fecha;
         this.estado = estado;
     }
 
@@ -73,10 +79,17 @@ public class Carga {
     public void setEstado(int estado) {
         this.estado = estado;
     }
-    
-    public
 
-    public String toDetalle() {
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    @Override
+    public String toString() {
         return "Carga{" +
                 "idCarga=" + idCarga +
                 ", estacion=" + estacion.getNombre() +
@@ -85,10 +98,5 @@ public class Carga {
                 ", tiempoCarga=" + tiempoCarga +
                 ", estado=" + estado +
                 '}';
-    }
-
-    @Override
-    public String toString() {
-        return toDetalle();
     }
 }
