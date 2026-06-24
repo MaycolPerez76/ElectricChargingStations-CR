@@ -189,7 +189,7 @@ public class ListaCargas {
         String sal = "Total de cargas: " + aCarga + "\n";
         for (int i = 0; i < aCarga; i++) {
             if (listaCargas[i] != null) {
-                sal = sal + listaCargas[i].toDetalle() + "\n";
+                sal = sal + listaCargas[i].toString()+ "\n";
             }
         }
         return sal;

@@ -88,20 +88,6 @@ public class ListaReservas {
         return aReserva;
     }
 
-    public ListaReservas filtroXEstacion(Estacion estacion) {
-        if (estacion == null) {
-            return new ListaReservas(tamMaximo);
-        }
-        ListaReservas temporal = new ListaReservas(tamMaximo);
-        for (int i = 0; i < aReserva; i++) {
-            if (listaReservas[i] != null
-                    && listaReservas[i].getEstacion() != null
-                    && listaReservas[i].getEstacion().getIdEstacion() == estacion.getIdEstacion()) {
-                temporal.agregarReserva(listaReservas[i]);
-            }
-        }
-        return temporal;
-    }
 
     public ListaReservas filtroXUsuario(Usuario usuario) {
         if (usuario == null) {
