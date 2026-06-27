@@ -1,0 +1,250 @@
+# 🚀 GUI Interactiva - Sistema de Estaciones de Carga Eléctrica
+
+## ✅ Creación Completada
+
+Se ha desarrollado una interfaz gráfica completa en Java Swing con las siguientes características:
+
+### 📦 Archivos Creados
+
+```
+src/main/java/com/user/gui/
+├── LoginFrame.java        (130 líneas)   - Autenticación de usuario
+├── UsuarioPanel.java      (235 líneas)   - Panel para usuario regular
+├── AdminPanel.java        (370 líneas)   - Panel para administrador
+└── MainWindow.java        (205 líneas)   - Controlador principal
+
+Archivos ejecutables:
+├── run.bat               - Script para Windows
+├── run.sh                - Script para Linux/Mac
+├── GUI_README.md         - Documentación completa
+└── GUIA_INICIO.txt       - Este archivo
+```
+
+---
+
+## 🎮 Cómo Usar
+
+### **Opción 1: Ejecutar con Script (Recomendado)**
+
+**Windows:**
+```bash
+cd C:\2026\ElectricChargingStations-CR\ElectricChargingStations-CR
+run.bat
+```
+
+**Linux/Mac:**
+```bash
+cd ElectricChargingStations-CR
+bash run.sh
+```
+
+### **Opción 2: Ejecutar Manualmente**
+
+```bash
+cd src/main/java
+javac -d ../../../target/classes -cp "." \
+  main/ElectricChargingStationsCR.java \
+  com/user/gui/*.java \
+  com/user/model/*.java \
+  com/user/listas/*.java \
+  com/user/estructures/*.java \
+  com/user/algoritmos/*.java
+
+java -cp ../../../target/classes main.ElectricChargingStationsCR
+```
+
+---
+
+## 🔑 Credenciales de Prueba
+
+### **ADMINISTRADOR**
+```
+Tipo de Usuario: Administrador
+Usuario: admin
+Contraseña: admin123
+```
+
+### **USUARIO REGULAR**
+```
+Tipo de Usuario: Usuario Regular
+Usuario: (Usar ID de la lista)
+Contraseña: user123
+
+Ejemplos de usuarios registrados:
+- 12345678
+- 98765432
+- 11111111
+- 22222222
+```
+
+---
+
+## 📊 Funcionalidades por Tipo de Usuario
+
+### 👥 USUARIO REGULAR
+
+| Pestaña | Descripción | Datos Mostrados |
+|---------|------------|-----------------|
+| **🏪 Estaciones** | Ver todas las estaciones disponibles | ID, Nombre, Ubicación, Cargadores, Estado |
+| **🚗 Mi Vehículos** | Listar sus vehículos registrados | Placa, Marca, Modelo, Capacidad Batería |
+| **📅 Mis Reservas** | Historial de reservas personales | ID, Vehículo, Fecha/Hora, Estado |
+| **⚡ Mis Cargas** | Historial de cargas realizadas | ID, Vehículo, Estación, Energía, Costo, Fecha |
+
+**Estadísticas disponibles:**
+- Total de cargas realizadas
+- Energía total consumida (kWh)
+- Costo total pagado (₡)
+
+---
+
+### 🛡️ ADMINISTRADOR
+
+| Pestaña | Descripción | Funcionalidades |
+|---------|------------|-----------------|
+| **🏪 Estaciones** | Gestión de estaciones | Ver, Agregar, Editar, Eliminar |
+| **👥 Usuarios** | Gestión de usuarios | Ver, Desactivar usuarios |
+| **🚗 Vehículos** | Listado de vehículos | Ver todos, Filtros por propietario |
+| **⚡ Cargas** | Monitoreo de cargas | Ver todas, Estadísticas totales |
+| **📅 Reservas** | Gestión de reservas | Ver, Confirmar, Cancelar |
+| **💰 Reportes** | Panel de estadísticas | Resumen completo del sistema, Exportar datos |
+
+**Reportes disponibles:**
+- Total de estaciones, usuarios, vehículos
+- Energía total consumida del sistema
+- Ingresos totales generados
+- Cantidad de cargas y reservas
+- Exportación de reportes
+
+---
+
+## 🎨 Características de Diseño
+
+✨ **Interfaz Moderna**
+- Diseño con gradientes de color azul y rojo
+- Tablas interactivas con información clara
+- Botones estilizados con iconos emoji
+- Panel de navegación con pestañas
+
+🎯 **Usuario Intuitivo**
+- Menú superior con información del usuario
+- Botón de "Cerrar Sesión" en cada pantalla
+- Mensajes de confirmación y error claros
+- Navegación sencilla entre secciones
+
+⚡ **Rendimiento**
+- Carga de datos en tiempo real
+- Actualización automática de tablas
+- Búsqueda y filtrado integrado
+- Datos persistentes en memoria
+
+---
+
+## 📋 Flujo de Navegación
+
+```
+┌─────────────────────────────────────────┐
+│      PANTALLA DE INICIO (LOGIN)         │
+│  Seleccione tipo de usuario             │
+│  [Administrador] [Usuario Regular]      │
+└──────────────┬──────────────────────────┘
+               │
+        ┌──────┴──────┐
+        ▼             ▼
+   [ADMIN]      [USUARIO]
+   Panel con    Panel con
+   6 pestañas   4 pestañas
+   
+En cualquier momento:
+   Botón "Cerrar Sesión" → Volver al LOGIN
+```
+
+---
+
+## 🔍 Tablas Disponibles
+
+### Usuario Regular - Estaciones
+| ID | Nombre | Ubicación | Cargadores | Estado |
+|---|---|---|---|---|
+| 1 | Estación San José | San José | 5 | Activo |
+
+### Usuario Regular - Mis Vehículos
+| Placa | Marca | Modelo | Batería (kWh) |
+|---|---|---|---|
+| PL001 | Toyota | Prius | 50.0 |
+
+### Usuario Regular - Mis Cargas
+| ID | Vehículo | Estación | Energía | Costo | Fecha |
+|---|---|---|---|---|---|
+| C001 | PL001 | Estación 1 | 25.50 | 7650.00 | 2026-06-20 |
+
+### Administrador - Usuarios
+| Identificación | Nombre | Email | Teléfono | Activo |
+|---|---|---|---|---|
+| 12345678 | Juan Pérez | juan@email.com | 87654321 | Sí |
+
+---
+
+## 🐛 Solución de Problemas
+
+### **Problema: "No se encuentra Java"**
+- **Solución**: Instale Java 8 o superior desde java.com
+
+### **Problema: "Ventana no se abre"**
+- **Solución**: Verificar que compile sin errores y reintentar
+
+### **Problema: "No muestra datos"**
+- **Solución**: Verificar que las listas estén cargadas en memoria
+
+### **Problema: "Login falla"**
+- **Solución**: Verifique credenciales (admin/admin123 para admin)
+
+---
+
+## 📚 Estructura de Código
+
+### LoginFrame
+- Autenticación de usuario/administrador
+- Validación de campos
+- Manejo de eventos de login
+
+### UsuarioPanel
+- 4 pestañas con información personal
+- Tablas con datos filtrados por usuario
+- Estadísticas personales
+
+### AdminPanel
+- 6 pestañas de gestión
+- Operaciones CRUD en estaciones, usuarios
+- Panel de reportes completo
+
+### MainWindow
+- Controlador principal de la aplicación
+- Manejo de cambio entre paneles
+- Gestión de sesión de usuario
+
+---
+
+## 📞 Información de Contacto
+
+**Desarrollador:** Maycol Pérez  
+**Proyecto:** Sistema de Estaciones de Carga Eléctrica - Costa Rica  
+**Versión:** 1.0  
+**Última Actualización:** Junio 2026
+
+---
+
+## ✨ Próximas Mejoras (Futuro)
+
+- [ ] Persistencia en base de datos
+- [ ] Gráficos de estadísticas
+- [ ] Exportación a PDF/Excel
+- [ ] Sistema de notificaciones
+- [ ] Modo oscuro
+- [ ] Validación avanzada de datos
+- [ ] Historial de cambios
+
+---
+
+**¡Listo para usar! 🎉**
+
+Ejecute el script correspondiente a su sistema operativo y disfrute de la GUI interactiva.
