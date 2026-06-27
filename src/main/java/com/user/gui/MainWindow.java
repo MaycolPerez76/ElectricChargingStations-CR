@@ -5,6 +5,7 @@ import com.user.model.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.net.URL;
 
 /**
  * Ventana principal - gestiona el login y la navegación entre paneles
@@ -45,7 +46,11 @@ public class MainWindow extends JFrame {
         setSize(1200, 700);
         setLocationRelativeTo(null);
         setResizable(true);
-        setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
+
+        URL iconUrl = getClass().getResource("/icon.png");
+        if (iconUrl != null) {
+            setIconImage(new ImageIcon(iconUrl).getImage());
+        }
 
         mainContentPanel = new JPanel();
         setContentPane(mainContentPanel);
